@@ -1,0 +1,49 @@
+Apuntes clase04
+=========================
+
+Javier Tuñoque
+email: javiertuga@gmail.com
+celular: 992794467
+
+Command
+============
+DML : Lenguaje de Manipulación de Datos (INSERT, SELECT, UPDATE, DELETE)
+DDL : Lenguaje de Definición de Datos (CREATE, ALTER, DROP, etc)
+
+DataReader
+============
+Devuelve un valor de la consulta
+
+DataSet
+============
+Base de datos en memoria, resultado de una consulta
+
+ExecuteScalar: Devuelve el identity generado.
+ExecuteReader: Devuelve un resultado.
+ExecuteNonQuery: No devuelve nada.
+
+P@$$w0rd
+
+GIT
+==========
+Paso 1: Instalar git 
+Paso 2: Crear un nuevo repositorio
+Paso 3: Crear una ruta donde se va a clonar el proyecto
+Paso 4: Ubicarnos en la ruta creada [cd]
+Paso 5: Ejecutar el comando [git clone "ruta del repositorio de github"]
+Paso 6: Copiar el proyecto en la ruta
+Paso 7: Ejecutar el comando [git status] en la ruta donde se ha copiado el proyecto
+Paso 8: Ejectuar el comando [git add .] para agregar el proyecto
+Paso 9: Ejecutar el comando [git commit -m "Agregando el proyecto 1"]
+Paso 10: Ejecutar el comando git push
+
+Nota 1: En caso de que se presente un problema al momento de hacer el push o el commit,
+se debe ejecutar el comando [git config --global user.email "kevin.alarcon.quispe@gmail.com"]
+
+Nota 2: Para ver el estado [git status] en la ruta del proyecto
+
+Nota 3: Para subir el proyecto en caso de conflicto local [git push -force]
+
+PENCIL PROJECT
+
+PRESENTAR EL PROYECTO
