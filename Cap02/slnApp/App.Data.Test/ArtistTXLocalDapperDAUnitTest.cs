@@ -5,12 +5,12 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace App.Data.Test
 {
     [TestClass]
-    public class ArtistDATest
+    public class ArtistTXLocalDapperDAUnitTest
     {
         [TestMethod]
         public void Count()
         {
-            var da = new ArtistDA();
+            var da = new ArtistTXLocalDapperDA();
 
             Assert.IsTrue(da.GetCount()>0);
         }
@@ -18,8 +18,8 @@ namespace App.Data.Test
         [TestMethod]
         public void GetAll()
         {
-            var da = new ArtistDA();
-            var listado = da.GetAll("Aero");
+            var da = new ArtistTXLocalDapperDA();
+            var listado = da.GetAll("%Aero%");
 
             Assert.IsTrue(listado.Count > 0);
         }
@@ -27,7 +27,7 @@ namespace App.Data.Test
         [TestMethod]
         public void Get()
         {
-            var da = new ArtistDA();
+            var da = new ArtistTXLocalDapperDA();
             var entity = da.Get(2);
 
             Assert.IsTrue(entity.ArtistId>0);
@@ -36,8 +36,8 @@ namespace App.Data.Test
         [TestMethod]
         public void GetAllSP()
         {
-            var da = new ArtistDA();
-            var listado = da.GetAllSP("Aero");
+            var da = new ArtistTXLocalDapperDA();
+            var listado = da.GetAllSP("%Aero%");
 
             Assert.IsTrue(listado.Count > 0);
         }
@@ -45,9 +45,9 @@ namespace App.Data.Test
         [TestMethod]
         public void Insert()
         {
-            var da = new ArtistDA();
+            var da = new ArtistTXLocalDapperDA();
             var artist = new Artist();
-            artist.Name = "Kevin-2";
+            artist.Name = "Peter Parker";
             int id = da.Insert(artist);
 
             Assert.IsTrue(id > 0,"El nombre del artista ya existe");
@@ -56,10 +56,10 @@ namespace App.Data.Test
         [TestMethod]
         public void Update()
         {
-            var da = new ArtistDA();
+            var da = new ArtistTXLocalDapperDA();
             var artist = new Artist();
-            artist.ArtistId = 280;
-            artist.Name = "Tony Stark";
+            artist.ArtistId = 276;
+            artist.Name = "Steven Strange";
             int registrosAfectados = da.Update(artist);
 
             Assert.IsTrue(registrosAfectados > 0, "El artista ya tiene ese nombre");
@@ -68,9 +68,9 @@ namespace App.Data.Test
         [TestMethod]
         public void Delete()
         {
-            var da = new ArtistDA();
+            var da = new ArtistTXLocalDapperDA();
             var artist = new Artist();
-            artist.ArtistId = 277;
+            artist.ArtistId = 278;
             int registrosAfectados = da.Delete(artist);
 
             Assert.IsTrue(registrosAfectados > 0, "No se encontró el ID del artista");

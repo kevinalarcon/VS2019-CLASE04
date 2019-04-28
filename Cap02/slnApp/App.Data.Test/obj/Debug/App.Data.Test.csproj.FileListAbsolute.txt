@@ -40,3 +40,5 @@ C:\VS2017KA\github\VS2019-CLASE04\Cap02\slnApp\App.Data.Test\obj\Debug\App.Data.
 C:\VS2017KA\github\VS2019-CLASE04\Cap02\slnApp\App.Data.Test\obj\Debug\App.Data.Test.csproj.CopyComplete
 C:\VS2017KA\github\VS2019-CLASE04\Cap02\slnApp\App.Data.Test\obj\Debug\App.Data.Test.dll
 C:\VS2017KA\github\VS2019-CLASE04\Cap02\slnApp\App.Data.Test\obj\Debug\App.Data.Test.pdb
+C:\VS2017KA\github\VS2019-CLASE04\Cap02\slnApp\App.Data.Test\bin\Debug\Dapper.dll
+C:\VS2017KA\github\VS2019-CLASE04\Cap02\slnApp\App.Data.Test\bin\Debug\Dapper.xml

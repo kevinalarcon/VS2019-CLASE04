@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace App.Data
 {
-    public class ArtistDA:BaseConnection
+    public class ArtistTXLocalDA:BaseConnection
     {
         /// <summary>
         /// Permite obtener la cantidad de registros
@@ -149,7 +149,7 @@ namespace App.Data
 
             return result;
         }
-
+        
         public int Insert(Artist entity)
         {
             var result = 0;
@@ -158,14 +158,34 @@ namespace App.Data
             {
                 cn.Open();
 
-                IDbCommand cmd = new SqlCommand("usp_InsertArtist");
-                cmd.Connection = cn;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add(
-                    new SqlParameter("@pName",entity.Name)
-                    );
+                //Iniciando el bloque de transacciòn local        
+                var transaccion = cn.BeginTransaction();
 
-                result = Convert.ToInt32(cmd.ExecuteScalar());
+                try
+                {
+
+                    IDbCommand cmd = new SqlCommand("usp_InsertArtist");
+                    cmd.Connection = cn;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add(
+                        new SqlParameter("@pName", entity.Name)
+                        );
+
+                    //Asociando la transacciòn local al objeto command
+                    cmd.Transaction = transaccion;
+
+                    result = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    //throw new Exception("Error");
+
+                    //Confirmando la transacciòn
+                    transaccion.Commit();
+                }
+                catch(Exception ex)
+                {
+                    transaccion.Rollback();
+                }
+
             }
 
             return result;
@@ -179,17 +199,30 @@ namespace App.Data
             {
                 cn.Open();
 
-                IDbCommand cmd = new SqlCommand("usp_UpdateArtist");
-                cmd.Connection = cn;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add(
-                    new SqlParameter("@pName", entity.Name)
-                    );
-                cmd.Parameters.Add(
-                    new SqlParameter("@pId", entity.ArtistId)
-                    );
+                var transaccion = cn.BeginTransaction();
 
-                result = cmd.ExecuteNonQuery();
+                try
+                {
+                    IDbCommand cmd = new SqlCommand("usp_UpdateArtist");
+                    cmd.Connection = cn;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add(
+                        new SqlParameter("@pName", entity.Name)
+                        );
+                    cmd.Parameters.Add(
+                        new SqlParameter("@pId", entity.ArtistId)
+                        );
+
+                    cmd.Transaction = transaccion;
+
+                    result = cmd.ExecuteNonQuery();
+
+                    transaccion.Commit();
+                }
+                catch(Exception ex)
+                {
+                    transaccion.Rollback();
+                }
             }
 
             return result;
@@ -203,14 +236,29 @@ namespace App.Data
             {
                 cn.Open();
 
-                IDbCommand cmd = new SqlCommand("usp_DeleteArtist");
-                cmd.Connection = cn;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add(
-                    new SqlParameter("@pId", entity.ArtistId)
-                    );
+                var transaccion = cn.BeginTransaction();
 
-                result = cmd.ExecuteNonQuery();
+                try
+                {
+                    IDbCommand cmd = new SqlCommand("usp_DeleteArtist");
+                    cmd.Connection = cn;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add(
+                        new SqlParameter("@pId", entity.ArtistId)
+                        );
+
+                    cmd.Transaction = transaccion;
+
+                    result = cmd.ExecuteNonQuery();
+
+                    transaccion.Commit();
+                }
+                catch(Exception ex)
+                {
+                    transaccion.Rollback();
+                }
+
+                
             }
 
             return result;
