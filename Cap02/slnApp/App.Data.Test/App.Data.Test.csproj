@@ -49,11 +49,14 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlbumDATest.cs" />
     <Compile Include="ArtistTXDistDAUnitTest.cs" />
     <Compile Include="ArtistTXLocalDapperDAUnitTest.cs" />
     <Compile Include="ArtistTXLocalDAUnitTest.cs" />
     <Compile Include="ArtistDATest.cs" />
+    <Compile Include="GenreDATest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="InvoiceUnitTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -7,10 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dapper;
+using System.Transactions;
 
 namespace App.Data
 {
-    public class ArtistTXLocalDapperDA:BaseConnection
+    public class ArtistTXDistribuidaDapperDA:BaseConnection
     {
         /// <summary>
         /// Permite obtener la cantidad de registros
@@ -95,9 +96,9 @@ namespace App.Data
             return result;
         }
 
-        public bool Update(Artist entity)
+        public int Update(Artist entity)
         {
-            var result = false;
+            var result = 0;
 
             using (IDbConnection cn = new SqlConnection(base.GetConnection))
             {
@@ -105,22 +106,22 @@ namespace App.Data
                     new { pName = entity.Name,
                             pId = entity.ArtistId },
                     commandType: CommandType.StoredProcedure
-                    )>0;
+                    );
             }
 
             return result;
         }
 
-        public bool Delete(Artist entity)
+        public int Delete(Artist entity)
         {
-            var result = false;
+            var result = 0;
 
             using (IDbConnection cn = new SqlConnection(base.GetConnection))
             {
                 result = cn.Execute("usp_DeleteArtist",
                     new { pId = entity.ArtistId},
                     commandType: CommandType.StoredProcedure
-                    )>0;
+                    );
             }
 
             return result;
@@ -130,32 +131,27 @@ namespace App.Data
         {
             var result = 0;
 
-            using (IDbConnection cn = new SqlConnection(base.GetConnection))
+            using (var tx = new TransactionScope())
             {
-                //Abriendo la conexión a la base de datos
-                //antes de iniciar la transacción
-                cn.Open();
-
-                //Iniciamos las trasnacciones
-                var tx = cn.BeginTransaction();
-
-                try
+                using (IDbConnection cn = new SqlConnection(base.GetConnection))
                 {
-                    result = cn.ExecuteScalar<int>("usp_InsertArtist",
-                    new { pName = entity.Name },
-                    commandType: CommandType.StoredProcedure,
-                    transaction:tx
-                    );
 
-                    //Confirmando la transacción
-                    tx.Commit();
+                    try
+                    {
+                        result = cn.ExecuteScalar<int>("usp_InsertArtist",
+                        new { pName = entity.Name },
+                        commandType: CommandType.StoredProcedure
+                        );
+
+                        //Confirmando la transacción
+                        tx.Complete();
+                    }
+                    catch (Exception ex)
+                    {
+                        result = 0;
+                    }
                 }
-                catch(Exception ex)
-                {
-                    //Deshacer las operaciones realizadas en la
-                    //transacción
-                    tx.Rollback();
-                }
+
             }
 
             return result;
@@ -165,29 +161,28 @@ namespace App.Data
         {
             var result = false;
 
-            using (IDbConnection cn = new SqlConnection(base.GetConnection))
+            using (var tx = new TransactionScope())
             {
-                cn.Open();
-
-                var tx = cn.BeginTransaction();
-
-                try
+                using (IDbConnection cn = new SqlConnection(base.GetConnection))
                 {
-                    result = cn.Execute("usp_UpdateArtist",
-                    new
+
+                    try
                     {
-                        pName = entity.Name,
-                        pId = entity.ArtistId
-                    },
-                    commandType: CommandType.StoredProcedure,
-                    transaction:tx
-                    ) > 0;
+                        result = cn.Execute("usp_UpdateArtist",
+                        new
+                        {
+                            pName = entity.Name,
+                            pId = entity.ArtistId
+                        },
+                        commandType: CommandType.StoredProcedure
+                        ) > 0;
 
-                    tx.Commit();
-                }
-                catch(Exception ex)
-                {
-                    tx.Rollback();
+                        tx.Complete();
+                    }
+                    catch (Exception ex)
+                    {
+                        result = false;
+                    }
                 }
             }
             return result;
@@ -197,29 +192,27 @@ namespace App.Data
         {
             var result = false;
 
-            using (IDbConnection cn = new SqlConnection(base.GetConnection))
+            using (var tx = new TransactionScope())
             {
-                cn.Open();
-
-                var tx = cn.BeginTransaction();
-
-                try
+                using (IDbConnection cn = new SqlConnection(base.GetConnection))
                 {
-                    result = cn.Execute("usp_DeleteArtist",
-                    new { pId = entity.ArtistId },
-                    commandType: CommandType.StoredProcedure,
-                    transaction: tx
-                    ) > 0;
 
-                    tx.Commit();
+                    try
+                    {
+                        result = cn.Execute("usp_DeleteArtist",
+                        new { pId = entity.ArtistId },
+                        commandType: CommandType.StoredProcedure
+                        ) > 0;
+
+                        tx.Complete();
+                    }
+                    catch (Exception ex)
+                    {
+                        result = false;
+                    }
+
                 }
-                catch (Exception ex)
-                {
-                    tx.Rollback();
-                }
-                
             }
-
             return result;
         }
 

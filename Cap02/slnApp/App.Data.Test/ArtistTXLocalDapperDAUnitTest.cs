@@ -60,9 +60,9 @@ namespace App.Data.Test
             var artist = new Artist();
             artist.ArtistId = 276;
             artist.Name = "Steven Strange";
-            int registrosAfectados = da.Update(artist);
+            bool registrosAfectados = da.Update(artist);
 
-            Assert.IsTrue(registrosAfectados > 0, "El artista ya tiene ese nombre");
+            Assert.IsTrue(registrosAfectados, "El artista ya tiene ese nombre");
         }
 
         [TestMethod]
@@ -71,9 +71,43 @@ namespace App.Data.Test
             var da = new ArtistTXLocalDapperDA();
             var artist = new Artist();
             artist.ArtistId = 278;
-            int registrosAfectados = da.Delete(artist);
+            bool registrosAfectados = da.Delete(artist);
 
-            Assert.IsTrue(registrosAfectados > 0, "No se encontró el ID del artista");
+            Assert.IsTrue(registrosAfectados, "No se encontró el ID del artista");
+        }
+
+        [TestMethod]
+        public void InsertTX()
+        {
+            var da = new ArtistTXLocalDapperDA();
+            var artist = new Artist();
+            artist.Name = "Peter Parker";
+            int id = da.Insert(artist);
+
+            Assert.IsTrue(id > 0, "El nombre del artista ya existe");
+        }
+
+        [TestMethod]
+        public void UpdateTX()
+        {
+            var da = new ArtistTXLocalDapperDA();
+            var artist = new Artist();
+            artist.ArtistId = 276;
+            artist.Name = "Steven Strange";
+            bool registrosAfectados = da.Update(artist);
+
+            Assert.IsTrue(registrosAfectados, "El artista ya tiene ese nombre");
+        }
+
+        [TestMethod]
+        public void DeleteTX()
+        {
+            var da = new ArtistTXLocalDapperDA();
+            var artist = new Artist();
+            artist.ArtistId = 278;
+            bool registrosAfectados = da.Delete(artist);
+
+            Assert.IsTrue(registrosAfectados, "No se encontró el ID del artista");
         }
     }
 }
