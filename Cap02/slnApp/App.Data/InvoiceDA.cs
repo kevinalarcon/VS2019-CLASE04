@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 using App.Entities;
 using Dapper;
 
@@ -27,7 +28,7 @@ namespace App.Data
                     var invoiceId = cn.ExecuteScalar<int>("usp_InsertInvoice",
                         new
                         {
-                            CustomerId =  invoice.CustomerId,
+                            CustomerId = invoice.CustomerId,
                             InvoiceDate = invoice.InvoiceDate,
                             BillingAddress = invoice.BillingAddress,
                             BillingCity = invoice.BillingCity,
@@ -36,7 +37,7 @@ namespace App.Data
                             BillingPostalCode = invoice.BillingPostalCode,
                             Total = invoice.Total
                         }, commandType: CommandType.StoredProcedure,
-                            transaction:tx
+                            transaction: tx
                         );
 
                     foreach (var item in invoice.InvoiceLine)
@@ -51,6 +52,8 @@ namespace App.Data
                             }, commandType: CommandType.StoredProcedure,
                             transaction: tx
                             );
+
+                        throw new Exception("Error");
                     }
 
                     result = invoiceId;
@@ -58,7 +61,7 @@ namespace App.Data
                     //Confirmando la transacción
                     tx.Commit();
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     //Deshaciendo la transacción
                     tx.Rollback();
@@ -68,5 +71,59 @@ namespace App.Data
 
                 return result;
         }
+
+        public int InsertarTXDist(Invoice invoice)
+        {
+            var result = 0;
+
+            using (var tx = new TransactionScope())
+            {
+                try
+                {
+                    using (IDbConnection cn = new SqlConnection(base.GetConnection))
+                    {
+
+                        var invoiceId = cn.ExecuteScalar<int>("usp_InsertInvoice",
+                            new
+                            {
+                                CustomerId = invoice.CustomerId,
+                                InvoiceDate = invoice.InvoiceDate,
+                                BillingAddress = invoice.BillingAddress,
+                                BillingCity = invoice.BillingCity,
+                                BillingState = invoice.BillingState,
+                                BillingCountry = invoice.BillingCountry,
+                                BillingPostalCode = invoice.BillingPostalCode,
+                                Total = invoice.Total
+                            }, commandType: CommandType.StoredProcedure
+                            );
+
+                        foreach (var item in invoice.InvoiceLine)
+                        {
+                            cn.Execute("usp_InsertInvoiceLine",
+                                new
+                                {
+                                    InvoiceId = invoiceId,
+                                    TrackId = item.TrackId,
+                                    UnitPrice = item.UnitPrice,
+                                    Quantity = item.Quantity
+                                }, commandType: CommandType.StoredProcedure
+                                );
+
+                            //throw new Exception("Error");
+                        }
+
+                        result = invoiceId;
+                    }
+                    tx.Complete();
+                }
+                catch (Exception ex)
+                {
+                    result = 0;
+                }
+            }
+
+            return result;
+        }
+
     }
 }

@@ -1,0 +1,14 @@
+C:\VS2017KA\github\VS2019-CLASE04\Cap04\slnApp\App.Data.DataAccess\bin\Debug\App.Data.DataAccess.dll.config
+C:\VS2017KA\github\VS2019-CLASE04\Cap04\slnApp\App.Data.DataAccess\bin\Debug\App.Data.DataAccess.dll
+C:\VS2017KA\github\VS2019-CLASE04\Cap04\slnApp\App.Data.DataAccess\bin\Debug\App.Data.DataAccess.pdb
+C:\VS2017KA\github\VS2019-CLASE04\Cap04\slnApp\App.Data.DataAccess\bin\Debug\App.Entities.Base.dll
+C:\VS2017KA\github\VS2019-CLASE04\Cap04\slnApp\App.Data.DataAccess\bin\Debug\EntityFramework.dll
+C:\VS2017KA\github\VS2019-CLASE04\Cap04\slnApp\App.Data.DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+C:\VS2017KA\github\VS2019-CLASE04\Cap04\slnApp\App.Data.DataAccess\bin\Debug\App.Entities.Base.pdb
+C:\VS2017KA\github\VS2019-CLASE04\Cap04\slnApp\App.Data.DataAccess\bin\Debug\EntityFramework.xml
+C:\VS2017KA\github\VS2019-CLASE04\Cap04\slnApp\App.Data.DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+C:\VS2017KA\github\VS2019-CLASE04\Cap04\slnApp\App.Data.DataAccess\obj\Debug\App.Data.DataAccess.csprojAssemblyReference.cache
+C:\VS2017KA\github\VS2019-CLASE04\Cap04\slnApp\App.Data.DataAccess\obj\Debug\App.Data.DataAccess.csproj.CoreCompileInputs.cache
+C:\VS2017KA\github\VS2019-CLASE04\Cap04\slnApp\App.Data.DataAccess\obj\Debug\App.Data.DataAccess.csproj.CopyComplete
+C:\VS2017KA\github\VS2019-CLASE04\Cap04\slnApp\App.Data.DataAccess\obj\Debug\App.Data.DataAccess.dll
+C:\VS2017KA\github\VS2019-CLASE04\Cap04\slnApp\App.Data.DataAccess\obj\Debug\App.Data.DataAccess.pdb
