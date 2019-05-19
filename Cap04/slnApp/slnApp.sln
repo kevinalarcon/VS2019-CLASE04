@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Entities.Base", "App.En
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Data.DataAccessTest", "App.Data.DataAccessTest\App.Data.DataAccessTest.csproj", "{74EB2B21-C595-4115-BAB6-5C3FE73668DA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Entites.Queries", "App.Entites.Queries\App.Entites.Queries.csproj", "{94682F82-86AD-4C73-8616-AE2558503D87}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.UI.Desktop", "App.UI.Desktop\App.UI.Desktop.csproj", "{90776E34-6B31-4A12-AF75-F0108F9A302C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{74EB2B21-C595-4115-BAB6-5C3FE73668DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74EB2B21-C595-4115-BAB6-5C3FE73668DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74EB2B21-C595-4115-BAB6-5C3FE73668DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94682F82-86AD-4C73-8616-AE2558503D87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94682F82-86AD-4C73-8616-AE2558503D87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94682F82-86AD-4C73-8616-AE2558503D87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94682F82-86AD-4C73-8616-AE2558503D87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90776E34-6B31-4A12-AF75-F0108F9A302C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90776E34-6B31-4A12-AF75-F0108F9A302C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90776E34-6B31-4A12-AF75-F0108F9A302C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90776E34-6B31-4A12-AF75-F0108F9A302C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

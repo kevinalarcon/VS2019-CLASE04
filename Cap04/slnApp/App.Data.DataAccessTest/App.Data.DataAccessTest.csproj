@@ -58,6 +58,8 @@
   <ItemGroup>
     <Compile Include="ArtistTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CustomerUnitTest.cs" />
+    <Compile Include="TrackDATest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -67,6 +69,10 @@
     <ProjectReference Include="..\App.Data.DataAccess\App.Data.DataAccess.csproj">
       <Project>{dace27fa-446a-4981-b6a2-ae604bc9ba54}</Project>
       <Name>App.Data.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\App.Entites.Queries\App.Entites.Queries.csproj">
+      <Project>{94682f82-86ad-4c73-8616-ae2558503d87}</Project>
+      <Name>App.Entites.Queries</Name>
     </ProjectReference>
     <ProjectReference Include="..\App.Entities.Base\App.Entities.Base.csproj">
       <Project>{6baa5cf3-efa3-4530-ab9e-be5beb368c82}</Project>

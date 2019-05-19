@@ -1,0 +1,6 @@
+C:\VS2017KA\github\VS2019-CLASE04\Cap04\slnApp\App.Entites.Queries\bin\Debug\App.Entites.Queries.dll
+C:\VS2017KA\github\VS2019-CLASE04\Cap04\slnApp\App.Entites.Queries\bin\Debug\App.Entites.Queries.pdb
+C:\VS2017KA\github\VS2019-CLASE04\Cap04\slnApp\App.Entites.Queries\obj\Debug\App.Entites.Queries.csprojAssemblyReference.cache
+C:\VS2017KA\github\VS2019-CLASE04\Cap04\slnApp\App.Entites.Queries\obj\Debug\App.Entites.Queries.csproj.CoreCompileInputs.cache
+C:\VS2017KA\github\VS2019-CLASE04\Cap04\slnApp\App.Entites.Queries\obj\Debug\App.Entites.Queries.dll
+C:\VS2017KA\github\VS2019-CLASE04\Cap04\slnApp\App.Entites.Queries\obj\Debug\App.Entites.Queries.pdb

@@ -25,3 +25,5 @@ C:\VS2017KA\github\VS2019-CLASE04\Cap04\slnApp\App.Data.DataAccessTest\obj\Debug
 C:\VS2017KA\github\VS2019-CLASE04\Cap04\slnApp\App.Data.DataAccessTest\obj\Debug\App.Data.DataAccessTest.csproj.CopyComplete
 C:\VS2017KA\github\VS2019-CLASE04\Cap04\slnApp\App.Data.DataAccessTest\obj\Debug\App.Data.DataAccessTest.dll
 C:\VS2017KA\github\VS2019-CLASE04\Cap04\slnApp\App.Data.DataAccessTest\obj\Debug\App.Data.DataAccessTest.pdb
+C:\VS2017KA\github\VS2019-CLASE04\Cap04\slnApp\App.Data.DataAccessTest\bin\Debug\App.Entites.Queries.dll
+C:\VS2017KA\github\VS2019-CLASE04\Cap04\slnApp\App.Data.DataAccessTest\bin\Debug\App.Entites.Queries.pdb

@@ -51,15 +51,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArtistDA.cs" />
+    <Compile Include="CustomerDA.cs" />
     <Compile Include="DbModel.cs" />
+    <Compile Include="MediaTypeDA.cs" />
+    <Compile Include="GenreDA.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="sysdiagrams.cs" />
+    <Compile Include="TrackDA.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\App.Entites.Queries\App.Entites.Queries.csproj">
+      <Project>{94682f82-86ad-4c73-8616-ae2558503d87}</Project>
+      <Name>App.Entites.Queries</Name>
+    </ProjectReference>
     <ProjectReference Include="..\App.Entities.Base\App.Entities.Base.csproj">
       <Project>{6baa5cf3-efa3-4530-ab9e-be5beb368c82}</Project>
       <Name>App.Entities.Base</Name>
