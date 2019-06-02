@@ -45,12 +45,17 @@
     <Compile Include="IAppUnitOfWork.cs" />
     <Compile Include="IGenericRepository.cs" />
     <Compile Include="IArtistRepository.cs" />
+    <Compile Include="ITrackRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\App.Entities.Base\App.Entities.Base.csproj">
       <Project>{14ADC132-FBEC-4A49-B9C1-CE33965DD5EA}</Project>
       <Name>App.Entities.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\App.Entities.Queries\App.Entities.Queries.csproj">
+      <Project>{00CD011B-CA35-4F3D-9BE9-3FE084279B99}</Project>
+      <Name>App.Entities.Queries</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

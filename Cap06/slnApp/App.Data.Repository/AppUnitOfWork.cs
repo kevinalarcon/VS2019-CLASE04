@@ -19,10 +19,12 @@ namespace App.Data.Repository
 
             this.ArtistRepository = new ArtistRepository(_context);
             this.AlbumRepository = new AlbumRepository(_context);
+            this.TrackRepository = new TrackRepository(_context);
         }
 
         public IArtistRepository ArtistRepository { get; set; }
         public IAlbumRepository AlbumRepository { get; set; }
+        public ITrackRepository TrackRepository { get; set; }
 
         public int Complete()
         {

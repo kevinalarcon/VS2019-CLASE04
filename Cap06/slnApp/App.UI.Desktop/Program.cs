@@ -16,7 +16,7 @@ namespace App.UI.Desktop
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmConsultaTracks());
+            Application.Run(new MDIPrincipal());
         }
     }
 }

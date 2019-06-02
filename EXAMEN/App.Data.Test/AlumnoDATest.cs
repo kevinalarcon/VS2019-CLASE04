@@ -22,8 +22,8 @@ namespace App.Data.Test
             var da = new AlumnoDA();
             var alumno = new Alumno();
 
-            alumno.Nombres = "Kevin Axhel";
-            alumno.Apellidos = "Alarcon Quispe";
+            alumno.Nombres = "Alumno22";
+            alumno.Apellidos = "Juarez22";
             alumno.Direccion = "Av. Villaverde 387";
             alumno.Sexo = "M";
             alumno.FechaNacimiento = new DateTime(1993, 6, 25);
