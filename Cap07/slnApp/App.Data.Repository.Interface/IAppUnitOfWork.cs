@@ -14,6 +14,13 @@ namespace App.Data.Repository.Interface
         IGenreRepository GenreRepository { get; set; }
         IMediaTypeRepository MediaTypeRepository { get; set; }
 
+        //Agregados por la tarea
+        ICustomerRepository CustomerRepository { get; set; }
+        IEmployeeRepository EmployeeRepository { get; set; }
+        IInvoiceRepository InvoiceRepository { get; set; }
+        IInvoiceLineRepository InvoiceLineRepository { get; set; }
+        IPlaylistRepository PlaylistRepository { get; set; }
+
         int Complete();
     }
 }

@@ -43,6 +43,11 @@
   <ItemGroup>
     <Compile Include="IAlbumRepository.cs" />
     <Compile Include="IAppUnitOfWork.cs" />
+    <Compile Include="IPlaylistRepository.cs" />
+    <Compile Include="IInvoiceLineRepository.cs" />
+    <Compile Include="IInvoiceRepository.cs" />
+    <Compile Include="IEmployeeRepository.cs" />
+    <Compile Include="ICustomerRepository.cs" />
     <Compile Include="IGenericRepository.cs" />
     <Compile Include="IArtistRepository.cs" />
     <Compile Include="IGenreRepository.cs" />
